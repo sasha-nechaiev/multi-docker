@@ -11,9 +11,12 @@ script:
 after_success:
   - docker build -t onechaiev/multi-client ./client
   - docker build -t onechaiev/multi-nginx ./nginx
-  - docker build -t onechaiev/multi-server ./nginx
+  - docker build -t onechaiev/multi-server ./server
   - docker build -t onechaiev/multi-worker ./worker
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push images to docker hub
-  - docker push onechaiev/multi-client onechaiev/multi-nginx onechaiev/multi-server onechaiev/multi-worker
+  - docker push onechaiev/multi-client
+  - docker push onechaiev/multi-nginx
+  - docker push onechaiev/multi-server
+  - docker push onechaiev/multi-worker
