@@ -1,0 +1,28 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "onechaiev/multi-client",
+            "hostname": "client",
+            "essential": false
+        }, {
+            "name": "server",
+            "image": "onechaiev/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "onechaiev/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "onechaiev/multi-nginx",
+            "hostname": "nginx",
+            "essential": true
+        }
+    ]
+}
